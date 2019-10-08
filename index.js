@@ -17,7 +17,7 @@ async function start() {
         await mongoose.connect('mongodb+srv://daniel000:1FYFVf12@cluster0-w4m3i.mongodb.net/admin?retryWrites=true&w=majority', {
             useNewUrlParser: true,
             useFindAndModify: false
-        })
+        });
         app.listen(PORT, ()=> {
             console.log('ok')
         })
@@ -26,4 +26,4 @@ async function start() {
     }
 }
 
-start()
+start();

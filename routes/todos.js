@@ -5,4 +5,8 @@ router.get('/', (req, res)=> {
     res.render('index')
 })
 
+router.get('/lists', (req, res)=> {
+    res.render('lists')
+})
+
 module.exports = router
