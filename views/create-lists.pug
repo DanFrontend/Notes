@@ -1,0 +1,9 @@
+extends index
+block content
+    div(class="row")
+        div(class="col-md-12")
+            form(action="/create-lists" method="POST")
+                div(class="form-group")
+                    label(for="firstName") Добавить заметку
+                    input(type="text", class="form-control", id="title", aria-describedby="emailHelp", name="title", placeholder="Введите задачу")
+                button(type="submit", class="btn btn-primary") Сохранить

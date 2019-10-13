@@ -1,1 +1,36 @@
-h1 Hello world
+doctype html
+html
+    head
+        include includes/head.pug
+    body(class="bg-light")
+        div(class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm")
+            h5(class="my-0 mr-md-auto font-weight-normal")
+                img(src='/img/keep_48dp.png')
+                a(href="/") Notes App
+                a(class="btn btn-outline-primary", href="/create-notes") Add new Notes
+                a(class="btn btn-outline-primary", href="/create-lists") Add new List
+
+
+        div(class="container")
+            block content
+            div(class="container")
+                if todos.length
+                    div(class="row")
+                        ul
+                            each todo in todos
+                                li(class="todo")
+                                    form(action="/complete" method="POST")
+                                        label
+                                            if todo.completed
+                                                input(type="checkbox" name="completed")
+                                                span=todo.title
+                                            else 
+                                                input(type="checkbox" name="completed")
+                                                span=todo.title
+                                            input(type="hidden" value=todo.id name="id")
+                                            button(class="btn" type="submit") Save
+                                            a(href="#", onclick="onDeleteItem(event,'" + todo._id.toString() + "')") Delete
+                else
+                    p Нет записей
+        footer
+            //   include includes/foot.pug

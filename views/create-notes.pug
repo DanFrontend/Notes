@@ -1,0 +1,7 @@
+extends index
+block content
+    h2 CREATING NOTES....
+    form(method="POST", action="/create-notes")
+        .form-group
+            label(for='exampleFormControlTextarea1') Example textarea
+            textarea#exampleFormControlTextarea1.form-control.col-md-4(rows='3')
