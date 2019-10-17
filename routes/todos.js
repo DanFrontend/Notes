@@ -28,16 +28,6 @@ router.post('/create-lists', async (req, res) => {
     res.redirect('/')
 })
 
-// router.post('/list/:listid', async (req, res) => {
-//     const listId = req.params.listId;
-//     const list = new List({
-//         title: req.body.title
-//     })
-  
-//     await list.save()
-//     res.redirect('/')
-// })
-
 router.post('/complete', async (req, res) => {
     const list = await List.findById(req.body.id)
     list.completed = !!req.body.completed
