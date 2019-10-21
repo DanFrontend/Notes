@@ -6,17 +6,17 @@ body
             each todo in todos
                 if(todo.id === listId)
                     li(class="todo" id=todo.id.toString())
-                        label
-                            form(action="/complete" method="POST")
+                        form(action="/complete" method="POST")
+                            label
                                 if todo.completed
-                                    input(type="checkbox" name="completed")
-                                    span=todo.title
-                                    span=todo.completed
+                                    input(type="checkbox" checked name="completed")
+                                    span(class="completed")=todo.title
                                 else 
                                     input(type="checkbox" name="completed")
                                     span=todo.title
                                 input(type="hidden" value=todo.id name="id")
                                 button(class="btn" type="submit") Save
+                                a(href=`/lists/change/${todo.id}`) Change
                                 a(href=`/lists/delete/${todo.id}`) Delete
     footer
             include includes/footer.pug 

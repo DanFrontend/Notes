@@ -1,0 +1,12 @@
+head
+    include includes/head.pug
+div(class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm")
+    div(class="col-md-12")
+        each todo in todos
+                if(todo.id === listId)
+                    form(action="/save-edit" method="POST" id=todo.id.toString())
+                        div(class="form-group")
+                            label(for="firstName") Изменить заметку
+                            input(type="text", class="form-control", id="title", value=todo.title, aria-describedby="emailHelp", name="title", placeholder="Введите задачу")
+                        input(type="hidden" value=todo.id name="id")
+                        button(type="submit", class="btn btn-primary") Сохранить

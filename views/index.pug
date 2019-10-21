@@ -10,9 +10,15 @@ html
                     div(class="row")
                         ul
                             each todo in todos
-                                li(class="todo" id=todo.id.toString())
-                                    span=todo.title
-                                    a(href=`lists/${todo.id}`) Подробнее
+                               div(class="card" style="width: 18rem;")
+                                    if todo.completed
+                                        li(class="card-body" style="background: aquamarine" class="todo" id=todo.id.toString())
+                                            p(class="card-text")=todo.title
+                                                a(href=`lists/${todo.id}` class="card-link") Подробнее
+                                    else 
+                                        li(class="card-body" style="background: coral" class="todo" id=todo.id.toString())
+                                            p(class="card-text")=todo.title
+                                                a(href=`lists/${todo.id}` class="card-link") Подробнее
                 else
                     p Нет записей
         
